@@ -10,3 +10,7 @@
 
 - this의 3번째 정의 : 객체 내의 this
 - this의 4번째 정의 : 이벤트리스너에서 this
+
+## 03. arrow func
+
+- 장점과 this 사용법
