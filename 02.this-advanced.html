@@ -7,10 +7,12 @@
   var object = {};
 
   // this의 세번째 정의
+  // construtor안에서 쓰면 construtor로 새로 생성되는 객체를 뜻함 -> instance
   function construtor() {
     this.name = 'Kim';
     this.age = 20;
   }
+  // 여기에서 this는 construtor로부터 새로 생성될 객체들을 의미
 
   var student = new construtor();
   console.log(student);
