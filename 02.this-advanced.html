@@ -1,0 +1,64 @@
+<div>
+  <button id="btn">일반 함수</button>
+  <button id="btnArrow">화살표 함수</button>
+  <button id="btnCase1">케이스 스터디 1</button>
+</div>
+<script>
+  var object = {};
+
+  // this의 세번째 정의
+  function construtor() {
+    this.name = 'Kim';
+    this.age = 20;
+  }
+
+  var student = new construtor();
+  console.log(student);
+
+  // this의 네 번째 정의
+
+  // 이벤트 리스너
+  document.getElementById('btn').addEventListener('click', function (e) {
+    console.log('일반 함수');
+    console.log(this);
+    console.log(e.currentTarget);
+    // this = e.currentTarget : 지금 이벤트 동작하는 곳
+    // <button id="btn">버튼</button> 출력됨
+  });
+  document.getElementById('btnArrow').addEventListener('click', (e) => {
+    console.log('화살표 함수');
+    console.log(this); // window
+    console.log(e.currentTarget); // <button id="btn">버튼</button>
+    // this != e.currentTarget
+  });
+
+  // -> ui 작업할 때 e.currentTarget 쓰자
+
+  // case study 1
+  document.getElementById('btnCase1').addEventListener('click', function (e) {
+    let arr = [1, 2, 3];
+    arr.forEach(function (e) {
+      // 전역 변수에 붙어있는 콜백 함수
+      // 콜백함수로 쓰였고, 일반 함수이기 때문에 window 출력
+      console.log(this); // window
+    });
+  });
+
+  // case study 2
+  var obj = {
+    name: ['김', '이', '박'],
+    func: function (e) {
+      console.log(`func 바로 아래: ${this}`);
+      console.log(this); // obj 객체 출력
+      obj.name.forEach(function (e) {
+        // 전역 변수에 들어있는 콜백함수
+        console.log(this);
+      });
+      // case study 3 (arrow func 특징)
+      obj.name.forEach(() => {
+        console.log(this); // obj 객체 출력
+      });
+    },
+  };
+  obj.func(); // window
+</script>
