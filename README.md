@@ -14,3 +14,7 @@
 ## 03. arrow func
 
 - 장점과 this 사용법
+
+## 04. var, let, const
+
+- 각각의 특성을 비교하고 연습 문제 풀이
