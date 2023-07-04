@@ -1,0 +1,57 @@
+<div>
+  <h3>03.arrow-func</h3>
+
+  <button id="btn1">일반 함수 버튼</button>
+  <button id="btn2">화살표 함수 버튼 1</button>
+  <button id="btn3">화살표 함수 버튼 2</button>
+</div>
+<script>
+  // 1
+  var obj = {
+    name: 'sample',
+    func: () => {
+      console.log(this);
+    },
+  };
+  obj.func(); // window
+
+  // 2
+  var obj2 = {
+    name: 'sample2',
+    func() {
+      console.log(this);
+      const thisFunc = () => {
+        console.log(this);
+      };
+      thisFunc();
+    },
+  };
+
+  obj2.func(); // obj2 객체
+
+  // 3
+  var obj3 = {
+    name: 'sample3',
+    func: () => {
+      console.log(this);
+      const thisFunc = () => {
+        console.log(this);
+      };
+      thisFunc();
+    },
+  };
+  obj3.func(); // window
+
+  // practice
+  document.getElementById('btn1').addEventListener('click', function () {
+    setTimeout(() => {
+      console.log(this.innerHTML); // 내용
+    }, 1000);
+  });
+  document.getElementById('btn2').addEventListener('click', (e) => {
+    console.log(this.innerHTML); // undefined
+  });
+  document.getElementById('btn3').addEventListener('click', (e) => {
+    console.log(e.currentTarget.innerHTML); // 내용
+  });
+</script>
