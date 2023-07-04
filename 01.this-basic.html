@@ -1,0 +1,50 @@
+<!-- div 해줘야 콘솔창에 객체표현이 이루어진다 -->
+<div></div>
+<script>
+  // 브라우저에서 최상위 객체는 window (global object)
+  // node.js에서는 {}
+
+  // 1. this
+  console.log(this);
+  function thisClg() {
+    console.log(this);
+    // 'use strict' 발동 시에는 undefined
+  }
+  thisClg(); // window
+
+  // 2. this - 객체 내 함수 안에서 쓸 때
+  let obj1 = {
+    data: 'Ex',
+    func: function () {
+      console.log(this);
+      // 이 함수를 가지고 있는 직전 객체가 this
+    },
+  };
+  obj1.func(); // obj1 객체 출력
+
+  let obj2 = {
+    data: {
+      name: 'sample',
+      func() {
+        console.log(this);
+      },
+    },
+  };
+  obj2.data.func(); // data 객체 출력
+
+  // 3. this - arrow 함수
+  // this값을 함수 밖에 있던거 그대로 쓴다
+  var obj3 = {
+    data: {
+      name: 'sample2',
+      func: () => {
+        console.log(this);
+      },
+    },
+  };
+  obj3.data.func(); // arrow func 이여서 최상위 객체를 출력 (window)
+
+  console.log(window.obj3.data.func()); // window
+  // let -> error
+  // var -> 정상 출력
+</script>
