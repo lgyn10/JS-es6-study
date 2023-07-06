@@ -1,0 +1,21 @@
+<div>
+  <h3>tagged-literals</h3>
+</div>
+<script>
+  var variable = 'Tom';
+  var word = `Hi, my name is ${variable}. hello! `;
+  function investigation(words, vars) {
+    console.log(words);
+    console.log(vars);
+    console.log(words[1] + vars + words[0]);
+  }
+  investigation`Hi, my name is ${variable}.hello! `;
+
+  // 문자를 해체 분석할 수 있음
+  // 단어 순서를 변경하거나
+  // 단어를 제거하거나
+  // ${변수} 위치를 옮기거나
+
+  // words 인자 : ${} 전후에 있는 문자들을 배열화
+  // vars 인자 : ${변수}를 뜻함
+</script>
