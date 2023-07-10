@@ -2,3 +2,35 @@
   <h3>class 복사</h3>
   <p>extends / super</p>
 </div>
+<script>
+  class GrandDad {
+    constructor(name) {
+      this.lastName = 'LEE';
+      this.firstName = name;
+    }
+    sayHi() {
+      console.log('hello! grand');
+    }
+  }
+  class Dad extends GrandDad {
+    constructor(name) {
+      super(name); // GrandFather의 instance를 다 가져옴
+      this.age = 50;
+    }
+    // sayHi 따로 처리 안해도 상속된다
+    // sayHi를 또 선언하면 이 함수가 실행된다
+    sayHi() {
+      console.log('hello! dad');
+      super.sayHi(); // 이것도 실행된다~
+    }
+  }
+
+  let grandDad = new GrandDad('만덕');
+  let dad = new Dad('석진');
+  let dad2 = new Dad();
+
+  // 출력
+  console.log(grandDad);
+  console.log(dad);
+  console.log(dad2);
+</script>

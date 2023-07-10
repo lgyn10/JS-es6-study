@@ -1,0 +1,23 @@
+<div>
+  <h3>getter / setter</h3>
+  <p>class</p>
+</div>
+
+<script>
+  class Person {
+    constructor() {
+      this.name = 'Kim';
+      this.age = 20;
+    }
+    set setName(name) {
+      this.name = name;
+    }
+    get nextAge() {
+      return this.age + 1;
+    }
+  }
+  let person1 = new Person();
+  person1.setName = 'Lee';
+  console.log(person1.nextAge);
+  console.log(person1);
+</script>
