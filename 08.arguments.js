@@ -1,3 +1,7 @@
+// 08.arguments
+// -> 옛날 기술, 지금은 rest opr 씀
+console.time('a');
+
 // 위는 파라미터
 function func(a, b, c) {
   console.log(a, b, c); // arguments
@@ -17,3 +21,4 @@ console.log(obj.length); // undefined
 // arguments는 배열이 아닌 객체이지만,
 // 특별히 인덱스로 조회가능하고,
 // length라는 속성이 존재해서 배열 메소드가 먹히는 것처럼 보인다
+console.timeEnd('a');

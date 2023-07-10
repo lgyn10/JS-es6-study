@@ -10,9 +10,6 @@ let ob = {job: ' student'};
 let obj = {...oa, ...ob};
 console.log(obj);
 
-// spread usage 3
-// rest 연산자
-
 // apply,call 함수 개념 -> spread 이후 쓸 일이 많지는 않음
 var person = {
   hello: function (a, b) {

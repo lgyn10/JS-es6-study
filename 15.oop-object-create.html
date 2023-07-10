@@ -1,0 +1,20 @@
+<div>
+  <h3>es5 : Object.create()</h3>
+</div>
+<script>
+  // es5 부터 Object.create() 생김
+  // Object.create(프로토타입object)
+
+  let parent = {name: 'Kim', age: 50, height: 'tall'};
+  let child = Object.create(parent); // 객체 생성
+  // -> prototype을 parent로 해주셈!
+  child.age = 20;
+  console.log(child.age); // 20
+  console.log(child.name); // Kim
+  console.log(child); // {age: 20}
+  console.log(child.__proto__); // {name: 'Kim', age: 50, height: 'tall'}
+
+  let grandChild = Object.create(child);
+  console.log(grandChild.height);
+  console.log(grandChild.__proto__.__proto__);
+</script>

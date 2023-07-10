@@ -1,0 +1,36 @@
+<div>
+  <h3>es6 : class</h3>
+</div>
+
+<script>
+  // 부모: Kia
+  class Kia {
+    constructor(year = 9999) {
+      this.name = 'Kia';
+      this.country = 'korea';
+      this.establish = 1944;
+      this.release = year;
+      // 함수 추가 방법 1
+      this.slogan1 = function () {
+        console.log('Movement that inspires-1');
+      };
+    }
+    // 함수 추가 방법 2
+    // 부모.prototype에 추가되는 원리
+    // __proto__ 로 접근 가능
+    slogan2() {
+      console.log('Movement that inspires-2');
+    }
+  }
+  // 자식: Sorento
+  let Sorento = new Kia();
+  console.log(Kia.prototype); // a
+  console.log(Sorento.__proto__); // b
+  console.log(Object.getPrototypeOf(Sorento)); // c - 부모의 prototype 출력
+  // a, b, c는 같은 값이 나옴
+  console.log(Sorento);
+
+  let Niro = new Kia(2022);
+  Niro.price = 4500;
+  console.log(Niro);
+</script>

@@ -1,0 +1,18 @@
+<div>
+  <h3>나머지 prototype 특징들</h3>
+</div>
+<script>
+  let arr = Array(1, 2, 3);
+
+  // 1. prototype은 함수에만 몰래 생성
+  console.log(arr.prototype); // undefined
+
+  // 2. 부모의 prototype 확인하는 법
+  console.log(arr.__proto__);
+
+  // 3. __proto__ 이용해 부모 강제 등록
+  let parent = {name: 'Kim'};
+  let child = {};
+  child.__proto__ = parent;
+  console.log(child.name); // Kim
+</script>

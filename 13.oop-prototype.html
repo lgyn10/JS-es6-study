@@ -1,0 +1,32 @@
+<div>
+  <h3>prototype</h3>
+  <p>node.js에서는 prototype확인이 어렵기 때문에 브라우저 사용함</p>
+</div>
+<script>
+  // prototype 문법 // prototype은 유전자라고 생각하자
+  function Student(name) {
+    this.name = name;
+    this.age = 20;
+    this.func = function () {
+      console.log(`제 이름은: ${this.name} 입니다.`);
+    };
+  } // -> 생성자를 만들면 prototype이라는 공간이 생김
+  let s1 = new Student('Kim');
+  let s2 = new Student();
+
+  console.log(s1);
+  console.log(s2);
+  s1.func();
+  console.log(Student.prototype);
+
+  Student.prototype.gender = '남'; // 전체 문장에 적용된다
+  let s3 = new Student('Lee');
+  console.log('s2');
+  console.log(s2); // gender 있음
+  console.log('s3');
+  console.log(s3); // gender 있음
+  console.log(s3.gender);
+
+  s3.toString();
+  // JS 내장함수들은 사실 prototype 밑에 있는 메소드들이다!!!
+</script>
