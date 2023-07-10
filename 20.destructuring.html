@@ -1,0 +1,36 @@
+<div>
+  <h3>destructuring</h3>
+  <p>구조분해할당</p>
+  <p>pattern matching</p>
+</div>
+<script>
+  // 1. 배열
+  let arr = [2, 3];
+  let [a, b, c = 10] = arr;
+  // default 값을 지정할 수 있다
+  // 지정 안하면 undefined
+  console.log(a, b, c);
+
+  // 2. 객체
+  let obj = {name: 'Lee', age: 20};
+  let {name: lastName, age, loc = 'seoul'} = obj; // 변수명을 키명과 똑같이 써야한다
+  console.log(lastName);
+  console.log(age);
+
+  // 3. 구조분해할당의 역발상
+  // 변수들을 객체에 넣기
+  let name2 = 'Lee';
+  let age2 = 20;
+  let obj2 = {name: name2, age: age2}; // 별거 아님
+  let obj3 = {name2, age2}; // 속성명과 변수명이 같을 때
+
+  // 4. 함수 파라미터 만들 때, 구조분해할당 사용 가능
+  // object 데이터들을 파라미터로 만들고 싶은 경우
+  let obj4 = {color: 'red', number: 50};
+  function func({color, number}) {
+    console.log(color);
+    console.log(number);
+  } // color와 number를 변수로 사용할 수 있음
+  func(obj4);
+  // {color, number} = obj4 이런 모양임
+</script>
