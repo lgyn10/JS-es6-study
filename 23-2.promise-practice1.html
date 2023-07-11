@@ -1,0 +1,17 @@
+<img id="test" src="https://codingapple1.github.io/kona.jpg" />
+
+<script>
+  let img = document.getElementById('test');
+  let imgPrms = new Promise((resolve, reject) => {
+    img.addEventListener('load', resolve);
+    img.addEventListener('error', reject);
+  });
+
+  imgPrms
+    .then(() => {
+      console.log('success!');
+    })
+    .catch(() => {
+      console.log('failed!');
+    });
+</script>

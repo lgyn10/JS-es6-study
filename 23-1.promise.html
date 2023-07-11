@@ -1,0 +1,39 @@
+<div>
+  <h3>promise</h3>
+</div>
+<script>
+  let prms = new Promise(function (resolve, reject) {
+    resolve(); // -> then으로
+    reject(); // -> catch로
+  });
+
+  // 1. then()
+  // then() 키워드는 프로미스가 성공일 경우 실행할 코드
+  prms.then(function () {}).then(function () {});
+
+  // 2. catch()
+  // 실행이 실패할 경우에 실행되는 부분
+  prms.catch(function () {});
+
+  // 3. finally()
+  // 실패든 성공이든 실행되는 부분
+  prms.finally(function () {});
+
+  // 4. 실전 연습
+  let promiseEx = new Promise(function (resolve, reject) {
+    let cmpu = 4 + 1;
+    if (cmpu == 2) resolve(cmpu);
+    else reject(cmpu);
+  });
+
+  promiseEx
+    .then((res) => {
+      console.log('성공! cmpu: ' + res);
+    })
+    .catch((res) => {
+      console.log('실패! cmpu: ' + res);
+    })
+    .finally(() => {
+      console.log('실행 끝!');
+    });
+</script>

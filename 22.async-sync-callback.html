@@ -1,0 +1,54 @@
+<div>
+  <h3>sync/async & callback</h3>
+</div>
+
+<script>
+  // 1. setTimeout
+  console.log(1);
+  setTimeout(() => console.log(2), 1000);
+  console.log(3);
+
+  // 2. addEventListener
+  addEventListener('click', function () {});
+  // 그래서 이벤트 리스너도 콜백함수를 쓴다
+  const func = () => {
+    console.log('hello');
+  };
+  addEventListener('click', func); // func()는 실행 문법이니 () 제거
+
+  // 3. 콜백 함수를 이용한 함수 디자인
+  // -> js에서는 이거 밖에 방법 없음
+  function func1(func) {
+    console.log('func1');
+    if (typeof func == 'function') func();
+  }
+  function func2() {
+    console.log('func2');
+  }
+  func1();
+  func2();
+  // func1 -> func2 순서대로 실행된다는 보장은 없다
+
+  // 콜백함수화 시키면 순차적으로 실행 가능
+  func1(func2);
+  // 동기/비동기 같은 개념이 아닌, 콜백함수는 함수 디자인 패턴이다
+
+  // 4. 콜백함수의 문제점
+  callback1(function () {
+    callback2(function () {
+      callback3(function () {
+        console.log('callback3');
+      });
+    });
+  });
+  // 비동기를 구현하기 위해 코드가 길어짐
+  // 해결방안 -> Promise
+  callback1()
+    .then(function () {
+      console.log('promise1');
+    })
+    .then(function () {
+      console.log('promise2');
+    });
+  // 옆으로 무한정 길어지지는 않음
+</script>
