@@ -1,0 +1,32 @@
+<div>
+  <h3>Symbol</h3>
+  <p>쓸데없음 주의</p>
+</div>
+
+<script>
+  // 추가 방법 2. Symbol 직접 넣어도 됨
+  let mbti = Symbol('mbti 비밀!');
+  let person = {name: 'Lee', age: 20, [mbti]: 'istj'};
+  person.weight = 100; // -> 명시적으로 저장됨
+
+  // 추가 방법 1.
+  let height = Symbol('키 비밀!');
+  person[height] = 170; // enumerable X
+
+  // person 반복문으로 출력할 때 가릴 수 있다
+
+  // 특징 1.
+  let sym1 = Symbol('reason1');
+  let sym2 = Symbol('reason1');
+  sym1 === sym2; // false
+
+  // 특징 2.
+  let sym3 = Symbol.for('reason1');
+  let sym4 = Symbol.for('reason1');
+  // -> let sym3 = sym4 처럼 인식됨
+
+  // 특징 3.
+  let arr = [2, 3, 4];
+  arr[Symbol.iterator];
+  // -> Array에 집어넣는 기본 Symbol
+</script>

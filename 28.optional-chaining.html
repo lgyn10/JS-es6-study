@@ -1,0 +1,26 @@
+<div>
+  <h3>optional chaining</h3>
+</div>
+
+<script>
+  let user = {
+    name: 'Lee',
+    //age: {value: 20},
+    height: 160,
+    weight: 100,
+  };
+
+  // .?
+  // console.log(user.age.value); // error, 여기서 코드 멈춤
+  console.log(user.age?.value);
+  console.log(user?.age); // 이거는 할 이유가 없음
+
+  document.getElementById('#a')?.innerHTML;
+
+  // ??
+  console.log(null ?? '??연산자');
+  console.log(undefined ?? '??연산자');
+  console.log(true ?? '??연산자');
+
+  console.log(user ?? '로딩 중..');
+</script>
