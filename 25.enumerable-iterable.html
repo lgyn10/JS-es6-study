@@ -1,0 +1,43 @@
+<div>
+  <h3>25.enumerable-iterable</h3>
+</div>
+
+<script>
+  // 객체 개념 Deep
+  let sample = {name: 'Sam', age: 16};
+  Object.getOwnPropertyDescriptor(sample, 'name');
+
+  // 1. for in 문
+  // 1-1. enumerable 만 반복한다
+  let obj = {name: 'Park', age: 20, address: 'Gimpo'};
+  for (let k in obj) {
+    console.log('속성명: ' + k);
+    console.log('속성값: ' + obj[k]);
+  }
+  // 1-2. 부모의 prototype도 반복 가능 (쓸데는 없다고 함)
+  class Parent {}
+  Parent.prototype.name = 'Park';
+  let obj2 = new Parent();
+  obj2 = {age: 20};
+  for (let k in obj2) {
+    console.log('obj2: ' + obj2[k]); // 부모's name 속성값인(상속받은 값인) Park 출력
+    // 내가 직접 가지고 있는 값만 반복 시킬 때
+    if (obj2.hasOwnProperty(k)) {
+      // k 대신 name 넣으면 false
+      console.log(obj2[k]);
+    }
+  }
+  // 1-3. 배열도 쓸 수 있다
+  let arr = [1, 2, 3, 4, 5];
+  for (let k in arr) {
+    console.log('index 값: ' + k);
+    console.log('요소 값: ' + arr[k]);
+  }
+
+  // 2. for of 문
+  // Array, String, arguments, NodeList, Map, Set 반복 돌릴 때
+  let ofArr = [1, 2, 3, 4, 5];
+  for (let k of ofArr) {
+    console.log('for-of: ' + k);
+  }
+</script>
